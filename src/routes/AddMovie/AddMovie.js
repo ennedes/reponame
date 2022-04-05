@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import '../../styles/App.css';
 import './addMovie.css';
+import movieData from '../'
 
 function AddMovie() {
 

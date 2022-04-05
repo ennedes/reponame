@@ -1,5 +1,5 @@
-import { axiosInstance as axios } from '@api';
-import { handlingResponse } from '@utils/globalMethods';
+import { axiosInstance as axios } from '../utils/index';
+import { handlingResponse } from '../utils/globalMethods';
 import { defaultHeaders } from '../index';
 
 export const movieData = async (params) => {
