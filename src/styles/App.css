@@ -1,0 +1,76 @@
+body {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  background-image: 
+    linear-gradient(to bottom, rgb(0, 0, 0), rgba(117, 19, 93, 0)),
+    url("https://assets.nflxext.com/ffe/siteui/vlv3/0bd3a69d-6790-4edc-9818-1c8c558946c2/47783156-7208-4cf5-be14-5b14e6260b2a/IT-it-20220329-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+}
+
+.App-logo {
+  height: 10vmin;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.title {
+  position: absolute;
+  left: center;
+  top: 20vh;
+}
+
+.nav-items {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.nav-items button {  
+  padding: 10px;
+  margin: 10px;
+  background-color: #a70000;
+  border-color: #a70000;
+  /* border-radius: 10%; */
+  /* color: white; */
+}
+
+.btn {
+  background-color: #a70000;
+  border-color: #a70000;
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.cardContainerExt {
+  position: absolute;
+  top: 60vh;
+  display: block;
+  align-items: left;
+  justify-content: left;
+  color: white;
+}
+
+li {
+  float: left;
+  list-style: none;
+}
+
+li div {
+  display: block;
+  text-align: center;
+  margin: 14px 16px;
+  cursor: pointer;
+}

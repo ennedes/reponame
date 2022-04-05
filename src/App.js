@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './styles/App.css';
+import LandingPage from './routes/LandingPage/LandingPage';
+import AddMovie from './routes/AddMovie/AddMovie';
+import AddActor from './routes/AddActor/AddActor';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
       </header>
+
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<LandingPage />}></Route>
+          </Routes>
+
+          <Routes>
+            <Route path='/addmovie' element={<AddMovie />}></Route>
+          </Routes>
+
+          <Routes>
+            <Route path='/addactor' element={<AddActor />}></Route>
+          </Routes>
+        </BrowserRouter>
+
     </div>
   );
 }

@@ -1,0 +1,19 @@
+.formContainer {
+    display: block;
+    top: 35vh;
+    left: 36vw;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: rgba(8, 8, 8, 0.849);
+    padding: 70px;
+}
+
+.formContainer input, select, textarea {
+    margin: 5px;
+    margin-bottom: 15px;
+}
+
+textarea {
+    resize: none;
+}
