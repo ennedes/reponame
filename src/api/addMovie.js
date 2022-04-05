@@ -1,6 +1,6 @@
 import { axiosInstance as axios } from '../utils/index';
 import { handlingResponse } from '../utils/globalMethods';
-import { defaultHeaders } from '../index';
+import { defaultHeaders } from '../utils/index';
 
 export const movieData = async (params) => {
   let data;

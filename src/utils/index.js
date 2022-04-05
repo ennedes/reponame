@@ -1,11 +1,4 @@
 import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
-
-const mockInstance = new MockAdapter(axios, { delayResponse: 1500 });
-if (process.env.REACT_APP_ISMOCK === 'false') {
-  mockInstance.onAny().passThrough();
-}
-mockInstance.onAny().passThrough();
 
 const defaultHeaders = {
   Accept: 'application/json, text/plain, */*',
@@ -43,6 +36,5 @@ axiosInstance.interceptors.response.use((response) => {
 export {
   defaultHeaders,
   defaultBody,
-  mockInstance,
   axiosInstance,
 };
