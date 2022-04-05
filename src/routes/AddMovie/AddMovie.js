@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import '../../styles/App.css';
 import './addMovie.css';
 import movieData from '../../api/addMovie';
+import { getCategories } from '../../api/getCategories';
 
 function AddMovie() {
 
@@ -29,7 +30,7 @@ function AddMovie() {
     // const [errorActors, setErrorActors] = useState(false);
 
     const validateTitle = () => {
-        if (title.length === null) {
+        if (title.length < 1) {
             setErrorTitle('Required');
         } else {
             setErrorTitle('');
@@ -37,12 +38,21 @@ function AddMovie() {
     };
 
     const validateCategory = () => {
-        if (category.length === null) {
+        if (category.length < 1) {
             setErrorCategory('Required');
         } else {
             setErrorCategory('');
         }
     };
+
+    const [categories, setCategories] = useState({});
+
+    useEffect(() => {
+      getCategories(category).then((r) => {
+        console.log(r.response.data);
+        setCategories(r.response.data);
+      });
+    });
 
     const handleSubmit = (event) => {
         event.preventDefault();
