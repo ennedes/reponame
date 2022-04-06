@@ -1,0 +1,19 @@
+.formContainer {
+    position: absolute;
+    top: 40vh;
+    left: 43vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.formContainer input, select, textarea {
+    margin: 5px;
+    margin-bottom: 15px;
+}
+
+textarea {
+    resize: none;
+}

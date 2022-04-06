@@ -1,0 +1,15 @@
+[
+    {
+        "name": "Iron Man",
+		"category": "Action",
+		"description": "lorem ipsum bla bla",
+		"actors": "Robert Downey Jr."
+    },
+    {
+        "name": "Star Wars",
+		"category": "Sci-Fi",
+		"description": "lorem ipsum bla",
+		"actors": "Mark Hamill"
+    }
+]
+

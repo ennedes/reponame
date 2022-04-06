@@ -1,0 +1,17 @@
+[
+    {
+        "firstName": "Robert",
+        "lastName": "Downey Jr.",
+        "gender": "Male"
+    },
+    {
+        "firstName": "Scarlett",
+        "lastName": "Johansson",
+        "gender": "Female"
+    },
+    {
+        "firstName": "Mark",
+        "lastName": "Hamill",
+        "gender": "Male"
+    }
+]
