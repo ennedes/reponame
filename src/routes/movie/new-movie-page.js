@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import '../../styles/App.css';
 import './new-movie-page.css';
 import movieData from "../../api/addMovie";
+import getCategories from "../../api/getCategories";
 
 function NewMoviePage() {
 
@@ -25,6 +26,7 @@ function NewMoviePage() {
     // errors
     const [errorTitle, setErrorTitle] = useState(false);
     const [errorCategory, setErrorCategory] = useState(false);
+    const [categories, setCategories] = useState(false);
     // const [errorDescription, setErrorDescription] = useState(false);
     // const [errorActors, setErrorActors] = useState(false);
 
@@ -43,6 +45,14 @@ function NewMoviePage() {
             setErrorCategory('');
         }
     };
+
+    useEffect(() => {
+        getCategories(category).then((r) => {
+            setCategories(r.response.data);
+            return categories;
+        });
+
+    }, [])
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -117,12 +127,7 @@ function NewMoviePage() {
                             name="category"
                             ref={inputCategoryRef}
                             onChange={validateCategory}>
-                                <option value=''></option>
-                                <option>Action</option>
-                                <option>Anime</option>
-                                <option>Comedy</option>
-                                <option>Drama</option>
-                                <option>Sentimental</option>
+                            {categories.map((val, i) => <option key={i} value={i}>{val}</option>)}
                         </select><br />
                         <span>{errorCategory}</span>
 

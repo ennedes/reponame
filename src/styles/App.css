@@ -67,8 +67,11 @@ li {
 }
 
 li div {
-  display: block;
+  display: inline-block;
   text-align: center;
   margin: 14px 16px;
   cursor: pointer;
+}
+ul{
+
 }

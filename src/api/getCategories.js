@@ -7,7 +7,7 @@ export const getCategories = async (params) => {
   try {
     data = await axios({
       method: 'get',
-      url: `/categories`,
+      url: `http://localhost:8099/categories`,
       headers: { ...defaultHeaders },
     });
     return handlingResponse(data);
