@@ -4,7 +4,7 @@ import { defaultHeaders } from '../utils/index';
 
 export const deleteMovie = async (params) => {
 
-    axios.delete('http://localhost:8099/movies/' + {params})
+    axios.delete('http://localhost:8099/movies/' + params)
         .then(() => this.setState({ status: 'Delete successful' }));
 
 };

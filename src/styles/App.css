@@ -35,13 +35,13 @@ body {
   /* color: white; */
 }
 
-.btn {
+.red {
   background-color: #a70000;
   border-color: #a70000;
 }
 
 .App-header {
-  min-height: 100vh;
+  min-height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,6 +72,4 @@ li div {
   margin: 14px 16px;
   cursor: pointer;
 }
-ul{
 
-}

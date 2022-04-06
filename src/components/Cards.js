@@ -23,11 +23,16 @@ const Cards = ({ movieProp, movieId }) => {
 
                         <div>
                             <Link to="/actors/new">
-                                <button className='btn btn-danger'>Add Actor</button>
+                                <button className='btn btn-outline-light'>Add Actor</button>
                             </Link>
                         </div>
                         <div>
-                            <button className='btn btn-danger' onClick={deleteCall}>Delete</button>
+                            <button className='btn red btn-danger' onClick={deleteCall}>Delete</button>
+                        </div>
+                        <div>
+                            <Link to={'/movies/'+ movieId + '/edit'} state={{ from: {movieProp} }}>
+                                <button className='btn btn-secondary'>Edit</button>
+                            </Link>
                         </div>
                     </div>
                 </div>

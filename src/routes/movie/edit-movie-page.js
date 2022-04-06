@@ -1,11 +1,17 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
+import { useLocation } from 'react-router-dom';
 import '../../styles/App.css';
 import './new-movie-page.css';
 import movieData from "../../api/addMovie";
 import getCategories from "../../api/getCategories";
 
-function NewMoviePage() {
+function EditMoviePage(props) {
+
+    const location = useLocation()
+    const { from } = location.state
+
+    console.log(location.state);
 
     const inputTitleRef = useRef('');
     const inputCategoryRef = useRef('');
@@ -65,7 +71,7 @@ function NewMoviePage() {
         };
     
         console.log('submit', inputData);
-        // POST call
+        // PUT call
         const formData = new FormData();
         formData.append('inputData', {
           type: 'application/json',
@@ -101,7 +107,7 @@ function NewMoviePage() {
             <header className="App-header">
                 <Navbar />
                 <h1 className='title'>
-                 Add a movie
+                 Edit {from.movieProp.name}
                 </h1>
             </header>
 
@@ -150,4 +156,4 @@ function NewMoviePage() {
   );
 }
 
-export default NewMoviePage;
+export default EditMoviePage;
