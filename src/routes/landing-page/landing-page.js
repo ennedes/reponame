@@ -31,7 +31,7 @@ function LandingPage() {
           <ul>
               <li>
                  {movies.map((movie) => {
-                    return <Cards movies={movie}> </Cards>;
+                    return <Cards movieProp={movie} movieId={movies.indexOf(movie)}> </Cards>;
                  })}
               </li>
           </ul>
