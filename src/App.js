@@ -15,7 +15,7 @@ function App() {
             <Route path='/' element={<LandingPage />}></Route>
             <Route path='/movies/new' element={<NewMoviePage />}></Route>
             <Route path='/movies/:params/edit' element={<EditMoviePage />}></Route>
-            <Route path='/actors/new' element={<NewActorPage />}></Route>
+            <Route path='/movies/:params/actors/new' element={<NewActorPage />}></Route>
           </Routes>
 
         </BrowserRouter>

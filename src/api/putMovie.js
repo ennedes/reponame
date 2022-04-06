@@ -4,7 +4,7 @@ import { defaultHeaders } from '../utils/index';
 
 export const editMovieData = async (params) => {
   let data;
-  const url = 'http://localhost:8099/movies/' + params;
+  const url = 'http://localhost:8099/movies/' + params.id;
 
   defaultHeaders['Content-Type'] = 'application/json';
 

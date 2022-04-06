@@ -7,7 +7,7 @@ export const getMovies = async (params) => {
   try {
     data = await axios({
       method: 'get',
-      url: `http://localhost:8099/movies`,
+      url: `http://localhost:8099/movies/`,
       headers: { ...defaultHeaders },
     });
     return handlingResponse(data);

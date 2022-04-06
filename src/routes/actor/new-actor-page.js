@@ -1,10 +1,14 @@
 import React, { useRef, useState } from 'react';
 import Navbar from '../../components/Navbar';
+import { useLocation } from 'react-router-dom';
 import '../../styles/App.css';
 import './new-actor-page.css';
 import actorData from "../../api/addActor";
 
-function NewActorPage() {
+function NewActorPage(props) {
+
+    const location = useLocation()
+    const { from } = location.state
 
     const inputFirstNameRef = useRef('');
     const inputLastNameRef = useRef('');
@@ -51,6 +55,7 @@ function NewActorPage() {
           firstName: inputFirstNameRef.current.value,
           lastName: inputLastNameRef.current.value,
           gender: inputGenderRef.current.value,
+          id: from.movieId
         };
     
         console.log('submit', inputData);

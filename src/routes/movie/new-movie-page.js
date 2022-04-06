@@ -47,7 +47,7 @@ function NewMoviePage() {
     };
 
     useEffect(() => {
-        getCategories(category).then((r) => {
+        getCategories().then((r) => {
             setCategories(r.response.data);
             return categories;
         });

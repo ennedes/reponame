@@ -19,9 +19,10 @@ function LandingPage() {
     }, [])
 
   return (
-    <div>
+    <div className='background'>
+        <Navbar />
       <div className="App-header">
-          <Navbar />
+
         <h1 className='title'>
           Films. Without Limits.
         </h1>
@@ -31,7 +32,7 @@ function LandingPage() {
           <ul>
               <li>
                  {movies.map((movie) => {
-                    return <Cards movieProp={movie} movieId={movies.indexOf(movie)}> </Cards>;
+                    return <Cards movieProp={movie} movieId={movie.id}> </Cards>;
                  })}
               </li>
           </ul>

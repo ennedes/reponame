@@ -4,7 +4,7 @@ import { defaultHeaders } from '../utils/index';
 
 export const actorData = async (params) => {
   let data;
-  const url = 'http://smartpay-02.nets.local:8080/api/login';
+  const url = 'http://localhost:8099/movies/'+params.id+'/actors/';
 
   defaultHeaders['Content-Type'] = 'application/json';
 

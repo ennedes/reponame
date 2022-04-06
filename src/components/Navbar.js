@@ -6,8 +6,8 @@ import '../styles/App.css';
 function Navbar() {
 
   return (
-    <div className="App">
-      <header className="App-header">
+
+      <header>
         <Link to="/">
           <img src={notflixlogo} className="App-logo" alt="logo" />
         </Link>
@@ -21,7 +21,6 @@ function Navbar() {
         </div>
 
       </header>
-    </div>
   );
 }
 

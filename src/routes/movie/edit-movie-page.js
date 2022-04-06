@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar';
 import { useLocation } from 'react-router-dom';
 import '../../styles/App.css';
 import './new-movie-page.css';
-import movieData from "../../api/addMovie";
+import editMovieData from "../../api/putMovie";
 import getCategories from "../../api/getCategories";
 
 function EditMoviePage(props) {
@@ -67,7 +67,8 @@ function EditMoviePage(props) {
         const inputData = {
           name: inputTitleRef.current.value,
           category: inputCategoryRef.current.value,
-          description: inputDescriptionRef.current.value
+          description: inputDescriptionRef.current.value,
+          id:from.movieProp.id
         };
     
         console.log('submit', inputData);
@@ -76,7 +77,7 @@ function EditMoviePage(props) {
         formData.append('inputData', {
           type: 'application/json',
         });
-        movieData(inputData).then((r) => {
+        editMovieData(inputData).then((r) => {
           console.log('next step');
           const response = r;
           window.prova = r;

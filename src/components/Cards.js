@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/App.css';
 import deleteMovie from '../api/deleteMovie';
+import getActors from '../api/getActors';
 
 const Cards = ({ movieProp, movieId }) => {
 
+    const [actors, setActors] = useState([]);
+
     const deleteCall = () => {
         deleteMovie(movieId);
-        console.log(movieId);
+
     };
+
+    useEffect(() => {
+        getActors(movieId).then((r) => {
+            setActors(r.response.data);
+            return actors;
+        });
+  
+    }, [])
 
   return (
       <div className='section'>
@@ -20,9 +31,13 @@ const Cards = ({ movieProp, movieId }) => {
                             {movieProp.category}
                         </div>
                         <p className="card-text">{movieProp.description}</p>
-
+                        <p className="card-text">
+                            {actors.map((actor) => {
+                            return <p>{actor.firstName} {actor.secondName}</p>;
+                            })}
+                        </p>
                         <div>
-                            <Link to="/actors/new">
+                            <Link to={'/movies/'+movieId+'/actors/new'} state={{ from: {movieId} }}>
                                 <button className='btn btn-outline-light'>Add Actor</button>
                             </Link>
                         </div>
