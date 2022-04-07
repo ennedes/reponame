@@ -14,8 +14,10 @@ const Cards = ({ movieProp, movieId }) => {
     };
 
     useEffect(() => {
+
         getActors(movieId).then((r) => {
             setActors(r.response.data);
+
             return actors;
         });
   
@@ -31,11 +33,11 @@ const Cards = ({ movieProp, movieId }) => {
                             {movieProp.category}
                         </div>
                         <p className="card-text">{movieProp.description}</p>
-                        <p className="card-text">
+
                             {actors.map((actor) => {
-                            return <p>{actor.firstName} {actor.secondName}</p>;
+                            return <p className="card-text">{actor.firstName} {actor.lastName}</p>;
                             })}
-                        </p>
+
                         <div>
                             <Link to={'/movies/'+movieId+'/actors/new'} state={{ from: {movieId} }}>
                                 <button className='btn btn-outline-light'>Add Actor</button>

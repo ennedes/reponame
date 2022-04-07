@@ -7,8 +7,7 @@ import getMovies from "../../api/getMovies";
 import getCategories from "../../api/getCategories";
 
 function LandingPage() {
-    const [movies, setMovies] = useState(items);
-    console.log(items);
+    const [movies, setMovies] = useState([]);
 
     useEffect(() => {
         getMovies().then((r) => {
@@ -17,6 +16,13 @@ function LandingPage() {
         });
 
     }, [])
+    const Movies = () => {
+        if(movies.length > 0){
+
+        }else{
+            return <h1>NO MOVIES AVAILABLE</h1>;
+        }
+    };
 
   return (
     <div className='background'>
@@ -31,9 +37,11 @@ function LandingPage() {
       <div className='cardContainerExt'>
           <ul>
               <li>
-                 {movies.map((movie) => {
-                    return <Cards movieProp={movie} movieId={movie.id}> </Cards>;
-                 })}
+
+                  {movies.map((movie) => {
+                      return <Cards movieProp={movie} movieId={movie.id}> </Cards>;
+                  })}
+
               </li>
           </ul>
       </div>

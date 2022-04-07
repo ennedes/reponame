@@ -4,6 +4,7 @@ import { defaultHeaders } from '../utils/index';
 
 export const getActors = async (params) => {
   let data;
+  console.log(params);
   try {
     data = await axios({
       method: 'get',
