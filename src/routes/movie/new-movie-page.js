@@ -1,11 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
+import { useNavigate, Link } from 'react-router-dom';
 import '../../styles/App.css';
 import './new-movie-page.css';
 import movieData from "../../api/addMovie";
 import getCategories from "../../api/getCategories";
 
 function NewMoviePage() {
+
+    const navigate = useNavigate();
 
     const inputTitleRef = useRef('');
     const inputCategoryRef = useRef('');
@@ -84,8 +87,8 @@ function NewMoviePage() {
             alert('400: Something went wrong. Please try again later');
           } else if (r.response.status !== undefined && r.response.status === 201) {
             console.log('Success!');
+            navigate('/', { replace: true})
             console.log(r.response.data);
-            navigate('/');
           }
           console.log(r);
         }).catch((e) => {
@@ -141,7 +144,7 @@ function NewMoviePage() {
                         />
                         <br />
 
-                        <button type='submit' className='btn btn-primary btn-danger' onClick={handleSubmit}>Submit</button>
+                          <button type='submit' className='btn btn-primary btn-danger' onClick={handleSubmit}>Submit</button>
                     </form>
                 </div>
 

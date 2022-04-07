@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+// import { useHistory } from 'react-router'; 
 import '../styles/App.css';
 import deleteMovie from '../api/deleteMovie';
 import getActors from '../api/getActors';
 
-const Cards = ({ movieProp, movieId }) => {
+const Cards = ({ movieProp, movieId, actorId }) => {
+
+    // const history = useHistory();
 
     const [actors, setActors] = useState([]);
 
     const deleteCall = () => {
         deleteMovie(movieId);
-
+        // history.go(0);
     };
 
     useEffect(() => {
@@ -22,6 +25,7 @@ const Cards = ({ movieProp, movieId }) => {
         });
   
     }, [])
+
 
   return (
       <div className='section'>
@@ -35,7 +39,11 @@ const Cards = ({ movieProp, movieId }) => {
                         <p className="card-text">{movieProp.description}</p>
 
                             {actors.map((actor) => {
-                            return <p className="card-text">{actor.firstName} {actor.lastName}</p>;
+                            return <p className="card-text">
+                                <Link to={'/movies/'+ movieId + '/actors' + actorId + '/edit'} state={{ from: {movieProp}} }> 
+                                    {actor.firstName} {actor.lastName}
+                                </Link>
+                                </p>;
                             })}
 
                         <div>

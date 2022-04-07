@@ -29,28 +29,6 @@ function EditMoviePage(props) {
     const [descriptionCheck, setDescriptionCheck] = useState(false);
     const [actorsCheck, setActorsCheck] = useState(false); */
 
-    // errors
-    const [errorTitle, setErrorTitle] = useState(false);
-    const [errorCategory, setErrorCategory] = useState(false);
-    const [categories, setCategories] = useState([]);
-    // const [errorDescription, setErrorDescription] = useState(false);
-    // const [errorActors, setErrorActors] = useState(false);
-
-    const validateTitle = () => {
-        if (title.length <1) {
-            setErrorTitle('Required');
-        } else {
-            setErrorTitle('');
-        }
-    };
-
-    const validateCategory = () => {
-        if (category.length <1) {
-            setErrorCategory('Required');
-        } else {
-            setErrorCategory('');
-        }
-    };
 
     useEffect(() => {
         getCategories(category).then((r) => {

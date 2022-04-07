@@ -1,14 +1,13 @@
 import React, { useRef, useState } from 'react';
 import Navbar from '../../components/Navbar';
-import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../../styles/App.css';
 import './new-actor-page.css';
-import actorData from "../../api/addActor";
+import editActorData from "../../api/putActor";
 
-function NewActorPage(props) {
+function EditActorPage(props) {
 
-    const location = useLocation()
-    const { from } = location.state
+    const { fromActor } = actorFrom.state
 
     const inputFirstNameRef = useRef('');
     const inputLastNameRef = useRef('');
@@ -55,16 +54,17 @@ function NewActorPage(props) {
           firstName: inputFirstNameRef.current.value,
           lastName: inputLastNameRef.current.value,
           gender: inputGenderRef.current.value,
-          id: from.movieId
+          id: from.movieId,
+          actorId: from.actorId
         };
     
         console.log('submit', inputData);
-        // POST call
+        // PUT call
         const formData = new FormData();
         formData.append('inputData', {
           type: 'application/json',
         });
-        actorData(inputData).then((r) => {
+        editActorData(inputData).then((r) => {
           console.log('next step');
           const response = r;
           window.prova = r;
@@ -76,10 +76,11 @@ function NewActorPage(props) {
             alert('401: Something went wrong. Please try again later');
           } else if (r.error !== undefined && r.error.status === 400) {
             alert('400: Something went wrong. Please try again later');
+          } else if (r.error !== undefined && r.error.status === 404) {
+            alert('404: Not found');
           } else if (r.response.status !== undefined && r.response.status === 201) {
             console.log('Success!');
             console.log(r.response.data);
-            navigate('/');
           }
           console.log(r);
         }).catch((e) => {
@@ -138,8 +139,9 @@ function NewActorPage(props) {
                             <option value='2'>Non binary</option>
                         </select><br />
                         <span></span>
-
-                        <button type='submit' className='btn btn-primary btn-danger' onClick={handleSubmit}>Submit</button>
+                        <Link to="/">
+                          <button type='submit' className='btn btn-primary btn-danger' onClick={handleSubmit}>Submit</button>
+                        </Link>
                     </form>
                 </div>
 
@@ -148,4 +150,4 @@ function NewActorPage(props) {
   );
 }
 
-export default NewActorPage;
+export default EditActorPage;

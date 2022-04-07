@@ -16,12 +16,11 @@ function LandingPage() {
         });
 
     }, [])
-    const Movies = () => {
-        if(movies.length > 0){
 
-        }else{
-            return <h1>NO MOVIES AVAILABLE</h1>;
-        }
+    const showMovies = () => {
+      movies.map((movie) => {
+        return <Cards movieProp={movie} movieId={movie.id}> </Cards>;
+      })
     };
 
   return (
@@ -37,11 +36,15 @@ function LandingPage() {
       <div className='cardContainerExt'>
           <ul>
               <li>
-
-                  {movies.map((movie) => {
-                      return <Cards movieProp={movie} movieId={movie.id}> </Cards>;
-                  })}
-
+                <div>
+                  {Object.keys(movies).length === 0 ? (
+                    <h2 style={{marginTop: 200 + 'px'}}>No movies yet, add one!</h2>
+                    ) : (
+                      movies.map((movie) => {
+                        return <Cards movieProp={movie} movieId={movie.id}> </Cards>;
+                      })
+                  )}
+                </div>
               </li>
           </ul>
       </div>
